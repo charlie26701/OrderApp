@@ -34,8 +34,8 @@ jobs:
       - name: Upload APK
         uses: actions/upload-artifact@v1
         with:
-          name: apk
-          path: app/build/outputs/apk/debug/OrderApp.apk 
+          name: OrderApp
+          path: app/build/outputs/apk/debug/app-debug.apk 
   release:
     name: Release APK
     needs: apk
@@ -60,6 +60,6 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
           upload_url: ${{ steps.create_release.outputs.upload_url }}
-          asset_path: apk/orderApp.apk
+          asset_path: apk/app-debug.apk
           asset_name: OrderApp.apk
           asset_content_type: application/zip
